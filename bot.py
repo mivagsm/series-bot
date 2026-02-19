@@ -3,8 +3,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
 # ── تنظیمات ───────────────────────────────────────────────────────────────────
-TELEGRAM_TOKEN = "8424424279:AAFI-Zcvp8KgS6B7sN-niDs9tiHGMWPwReo"
-TMDB_API_KEY   = "c30cbc32c804c4f11212693b3841f14b"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TMDB_API_KEY   = os.getenv("TMDB_API_KEY")
 DATA_FILE      = "data.json"
 CHECK_INTERVAL = 6 * 3600
 
@@ -371,4 +371,5 @@ async def main():
     await periodic_check(app)
 
 if __name__ == "__main__":
+
     asyncio.run(main())
